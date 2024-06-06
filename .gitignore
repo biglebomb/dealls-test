@@ -1,0 +1,23 @@
+node_modules
+.vscode/*
+!.vscode/launch.json
+**/.DS_Store
+npm-debug.log
+**/*.env
+**/.env
+!env/*.env
+**/yarn-error.log
+*.sql
+test-results.xml
+
+dist
+db.env
+**/*.env.local
+**/*.env.develop
+**/*.env.staging
+**/*.env.production
+
+# Load testing files
+seeds.json
+
+.idea

@@ -1,0 +1,37 @@
+version: "3.5"
+volumes:
+  pgdata:
+  api_modules:
+    driver: local
+
+services:
+  # API App
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - "db"
+    volumes:
+      - ./:/home/envuser/apphome:cached
+      - api_modules:/home/envuser/apphome/node_modules
+    ports:
+      - "8090:10000"
+    environment:
+      - NODE_ENV=development
+      - NODE_OPTIONS=--max-old-space-size=3000
+    env_file:
+      - ./db.env
+      - ./.env
+    stop_signal: SIGKILL
+    command: 'sh -c "yarn && yarn dev"'
+
+  # Database
+  db:
+    image: postgres:15.3-alpine
+    ports:
+      - "5431:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file:
+      - ./db.env
