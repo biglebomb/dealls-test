@@ -58,6 +58,7 @@ describe('auth - auth token', () => {
 
   it('returns 200 if token exist and is still valid', async () => {
     const token = faker.datatype.uuid()
+    const authToken = AuthTokenRepo.upsertAuthToken('userId')
     sinon
       .stub(AuthTokenRepo, 'getExpireAt')
       .resolves(moment().add(10, 'days').toDate())
