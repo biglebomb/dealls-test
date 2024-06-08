@@ -1,4 +1,4 @@
-TEST# Dragon
+# Dragon
 
 Dragon is the backend system for our backend app
 
