@@ -20,7 +20,7 @@ interface RegisterResponse extends ServerInjectResponse {
   }
 }
 
-describe.only('registerUser - integration test', () => {
+describe('registerUser - integration test', () => {
   let server: Server, request: RegisterOptions, payload: any
 
   beforeEach('setup server and test route', async () => {

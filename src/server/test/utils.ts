@@ -1,13 +1,15 @@
 // disable console log linting rule because this is test environment
 /* eslint-disable no-console */
-import { faker } from '@faker-js/faker'
+import {faker} from '@faker-js/faker'
 import * as _ from 'lodash'
 
 import * as Config from 'config/test'
-import { rollback } from 'server/utils/transactions'
-import type { Server } from '../index'
-import { createServer } from '../index'
-import type { Sequelize, Transaction } from 'sequelize'
+import {rollback} from 'server/utils/transactions'
+import type {Server} from '../index'
+import {createServer} from '../index'
+import type {Sequelize, Transaction} from 'sequelize'
+import UserRepo from "database/repositories/userRepo";
+import type User from "database/models/User";
 
 let server: Server | undefined
 
